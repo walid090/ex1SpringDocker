@@ -31,7 +31,7 @@ pipeline {
         stage ("Run docker compose") {
             steps {
                 dir("ex1SpringDocker") {
-                    sh "docker compose up -d"
+                    sh "docker-compose up -d"
                 }
             }
         }
