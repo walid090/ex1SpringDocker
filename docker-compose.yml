@@ -1,5 +1,5 @@
 # Spring Boot Application
 spring-boot-app:
-  image: docexpi-spring
+  image: ex1SpringDocker
   ports:
     - "0.0.0.0:8084:8080"
