@@ -4,28 +4,33 @@ pipeline {
         maven 'maven'
     }
     stages {
-        stage ("Clean up") {
+        stage('Clean up') {
             steps {
                 deleteDir()
             }
         }
-        stage ("Clone repo") {
+        stage('Clone repo') {
             steps {
-                sh "git clone https://github.com/walid090/ex1SpringDocker.git"
+                sh 'git clone https://github.com/walid090/ex1SpringDocker.git'
             }
         }
-        stage ("Generate backend image") {
+        stage('Check Directory Structure') {
             steps {
-                dir("expi-spring") {
-                    sh "mvn clean install"
-                    sh "docker build -t docexpi-spring ."
+                // This will list all the files and directories in the workspace
+                sh 'ls -la'
+            }
+        }
+        stage('Generate backend image') {
+            steps {
+                dir('DockerSpringEx1') { // Replace with the correct directory if necessary
+                    sh 'mvn clean install'
                 }
             }
         }
-        stage ("Run docker compose") {
+        stage('Run docker compose') {
             steps {
-                dir("expi-spring") {
-                    sh "docker compose up -d"
+                dir('DockerSpringEx1') { // Replace with the correct directory if necessary
+                    sh 'docker compose up -d'
                 }
             }
         }
