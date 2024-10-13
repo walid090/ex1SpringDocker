@@ -2,4 +2,4 @@
 spring-boot-app:
   image: docexpi-spring
   ports:
-    - "0.0.0.0:8084:8080"
+    - "8084:8080"
