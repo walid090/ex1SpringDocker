@@ -14,6 +14,12 @@ pipeline {
                 sh "git clone https://github.com/walid090/ex1SpringDocker.git"
             }
         }
+         stage('Check Directory Structure') {
+            steps {
+                // List the contents of the current workspace to see all files
+                sh 'ls -la'
+            }
+        }
         stage ("Generate backend image") {
             steps {
                 dir("expi-spring") {
